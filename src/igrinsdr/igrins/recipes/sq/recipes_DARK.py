@@ -20,10 +20,19 @@ def makeProcessedDark(p):
     """
 
     p.prepare()
-    p.addDQ()
-    p.addVAR(read_noise=True)
-    #....
+    # p.addDQ(static_bpm=None)
+    p.streamPatternCorrected()
+    p.estimateNoise(),
+    p.selectLevel3Removed(),
+    p.stackDarks(),
+    p.addNoiseTable(),
+    # p.makeIRAFCompatible()
     p.storeProcessedDark()
+    # p.prepare()
+    # p.addDQ()
+    # p.addVAR(read_noise=True)
+    # #....
+    # p.storeProcessedDark()
     return
 
 _default = makeProcessedDark
