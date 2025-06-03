@@ -1,3 +1,26 @@
+[project]
+name = "igrinsdr"
+version = "0.1.0"  # Consider using dynamic versioning with a tool like setuptools-scm
+description = "IGRINS pipeline for DRAGONS"
+authors = [
+    {name = "Jae-Joon Lee", email = "lee.j.joon@gmail.com"}
+]
+# license = {text = "MIT"}
+# readme = "README.md"
+# requires-python = ">=3.8"
+# dependencies = [
+#     # Add your main dependencies here
+#     "matplotlib>=3.0.0",
+#     "numpy>=1.19.0",
+#     "scipy>=1.5.0",
+# ]
+
+# packages = [
+#     { include = "igrinsdr", from = 'src'},
+#     { include = "igrins_instruments", from = 'src'},
+# ]
+
+
 [tool.poetry]
 name = "igrinsdr"
 version = "0.1.0"
@@ -7,6 +30,12 @@ authors = ["Jae-Joon Lee <lee.j.joon@gmail.com>"]
 packages = [
     { include = "igrinsdr", from = 'src'},
     { include = "igrins_instruments", from = 'src'},
+]
+
+exclude = [
+  "test/**/*",
+  "test_i2/**/*",
+  "test_flat_with_bundle_recipe/**/*"
 ]
 
 [tool.poetry.dependencies]
@@ -24,3 +53,17 @@ mef_extract = "igrinsdr.igrins.mef_extract:main"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# Documentation dependencies
+[project.optional-dependencies]
+doc = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "sphinx-autodoc-typehints>=1.12.0",
+    "autoapi>=2.0.0",  # Required for autoapi.sphinx
+    "numpydoc>=1.2.0",
+    "myst-parser>=0.18.0",
+    "sphinx-copybutton>=0.5.0",
+    "sphinx-gallery>=0.10.0",
+]
+

@@ -134,4 +134,4 @@ dmypy.json
 # local test
 
 SDC*.fits
-test/
+#test/
