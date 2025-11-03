@@ -44,7 +44,7 @@ exclude = [
 dragons = ">=4.1.0"
 # astroscrappy = ">=1.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^7.1"
 
 [tool.poetry.scripts]
