@@ -5,31 +5,22 @@ description = "IGRINS pipeline for DRAGONS"
 authors = [
     {name = "Jae-Joon Lee", email = "lee.j.joon@gmail.com"}
 ]
-# license = {text = "MIT"}
-# readme = "README.md"
-# requires-python = ">=3.8"
-# dependencies = [
-#     # Add your main dependencies here
-#     "matplotlib>=3.0.0",
-#     "numpy>=1.19.0",
-#     "scipy>=1.5.0",
-# ]
-
-# packages = [
-#     { include = "igrinsdr", from = 'src'},
-#     { include = "igrins_instruments", from = 'src'},
-# ]
-
 
 [tool.poetry]
 name = "igrinsdr"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Jae-Joon Lee <lee.j.joon@gmail.com>"]
 
 packages = [
     { include = "igrinsdr", from = 'src'},
     { include = "igrins_instruments", from = 'src'},
+]
+
+include = [
+    "igrinsdr/igrins/lookups/ref_data/*",
+    # "igrinsdr/igrins/lookups/ref_data/H-band_sky_mask_igrins2.fits",
+    # "igrinsdr/igrins/lookups/ref_data/K-band_sky_mask_igrins2.fits"
 ]
 
 exclude = [
@@ -47,8 +38,8 @@ dragons = ">=4.1.0"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1"
 
-[tool.poetry.scripts]
-mef_extract = "igrinsdr.igrins.mef_extract:main"
+# [tool.poetry.scripts]
+# mef_extract = "igrinsdr.igrins.mef_extract:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "setuptools-scm>=7.0.0"]
