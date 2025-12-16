@@ -8,7 +8,7 @@ authors = [
 
 [tool.poetry]
 name = "igrinsdr"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Jae-Joon Lee <lee.j.joon@gmail.com>"]
 
