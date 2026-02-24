@@ -135,3 +135,4 @@ dmypy.json
 
 SDC*.fits
 #test/
+src/igrinsdr/_version.py

@@ -1,9 +1,21 @@
-# Import version info from _version.py
-from ._version import version_info, __version__
+try:
+    from importlib.metadata import version as _version, PackageNotFoundError
+except ImportError:
+    from importlib_metadata import version as _version, PackageNotFoundError
 
-# Make version_tuple available as well
-__version_tuple__ = version_info
+try:
+    __version__ = _version("igrinsdr")
+except PackageNotFoundError:
+    try:
+        from ._version import __version__
+    except ImportError:
+        __version__ = "unknown"
 
-# Clean up the namespace
-del version_info
+# For backward compatibility
+import re
+_v_match = re.match(r"(\d+)\.(\d+)\.(\d+)", __version__)
+if _v_match:
+    __version_tuple__ = tuple(int(x) for x in _v_match.groups())
+else:
+    __version_tuple__ = (0, 0, 0)
 
