@@ -35,8 +35,11 @@ exclude = [
 dragons = ">=4.1.0"
 # astroscrappy = ">=1.1"
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.1"
+# [tool.poetry.group.dev.dependencies]
+# pytest = "^7.1"
+
+[tool.poetry.extras]
+dev = ["pytest"]
 
 # [tool.poetry.scripts]
 # mef_extract = "igrinsdr.igrins.mef_extract:main"
